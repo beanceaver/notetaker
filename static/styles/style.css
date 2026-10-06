@@ -49,11 +49,11 @@ button {
     cursor: pointer;
 }
 
-.create-control {
+.plus-group {
     position: relative;
 }
 
-#create-button {
+#plus-button {
     width: 38px;
     height: 38px;
     border: none;
@@ -62,12 +62,12 @@ button {
     font-size: 30px;
 }
 
-#create-button span {
+#plus-button span {
     display: inline-block;
     transform: translateY(-2px);
 }
 
-#create-button:hover {
+#plus-button:hover {
     background: #373737;
 }
 
@@ -107,7 +107,7 @@ button {
     background: #373737;
 }
 
-#create-menu {
+#menu {
     position: absolute;
     top: 100%;
     width: 160px;
@@ -118,7 +118,7 @@ button {
     z-index: 10;
 }
 
-#create-menu button {
+#menu button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -127,6 +127,6 @@ button {
     text-align: left;
 }
 
-#create-menu button:hover {
+#menu button:hover {
     background: #414142;
 }

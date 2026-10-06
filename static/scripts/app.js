@@ -2,24 +2,26 @@
 const sidebar = document.querySelector(".sidebar");
 const hideSidebar = document.querySelector("#hide-sidebar");
 const showSidebar = document.querySelector("#show-sidebar");
-const control = document.querySelector(".create-control"); // + button and menu combined
-const button = document.querySelector("#create-button");
-const menu = document.querySelector("#create-menu");
+const group = document.querySelector(".plus-group"); // + button and menu combined
+const button = document.querySelector("#plus-button");
+const menu = document.querySelector("#menu");
+const newFolder = document.querySelector("#new-folder");
+const newNote = document.querySelector("#new-note");
 
-button.addEventListener("click", () => { // for touch 
+button.addEventListener("click", () => { // for touch, tap
     menu.hidden = false;
 });
 document.addEventListener("click", (event) => { 
-    if (!control.contains(event.target)) {
+    if (!group.contains(event.target)) {
         menu.hidden = true;
     }
 });
 
-control.addEventListener("pointerenter", (event) => { // for mouse
+group.addEventListener("pointerenter", (event) => { // for mouse, hover
     if (event.pointerType !== "mouse" || !menu.hidden) return;
     menu.hidden = false;
 });
-control.addEventListener("pointerleave", () => {
+group.addEventListener("pointerleave", () => {
     menu.hidden = true;
 });
 
@@ -28,7 +30,6 @@ hideSidebar.addEventListener("click", () => {
     document.body.style.gridTemplateColumns = "minmax(0, 1fr)";
     showSidebar.hidden = false;
 });
-
 showSidebar.addEventListener("click", () => {
     sidebar.style.display = "";
     document.body.style.gridTemplateColumns = "";
