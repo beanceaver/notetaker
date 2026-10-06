@@ -10,7 +10,47 @@
     />
 </head>
 <body>
-    <h1>This is the Note Taker App</h1>
-    <p>Hello!</p>
+    <div class="sidebar">
+        <header class="sidebar-header">
+            <h1>Notetaker</h1>
+
+            <div class="create-control">
+                <button
+                    id="create-button"
+                    type="button">
+                    <span>+</span>
+                </button>
+
+                <div id="create-menu" hidden>
+                    <button type="button">New Folder</button>
+                    <button type="button">New Note</button>
+                </div>
+            </div>
+        </header>
+
+        <footer class="sidebar-footer">
+            <button id="hide-sidebar" type="button" title="Hide sidebar">
+                <img
+                    src="{{ url_for('static', filename='icons/hide-sidebar.svg') }}"
+                    width="32"
+                    height="32"
+                alt="hide-sidebar"
+                >
+            </button>
+        </footer>
+    </div>
+
+    <main class="workspace">
+        <button id="show-sidebar" type="button" title="Show sidebar" hidden>
+            <img
+                src="{{ url_for('static', filename='icons/show-sidebar.svg') }}"
+                width="32"
+                height="32"
+                alt=""
+            >
+        </button>
+    </main>
+
+<script src="{{ url_for('static', filename='scripts/app.js') }}"></script>
 </body>
 </html>
