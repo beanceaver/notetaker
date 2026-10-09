@@ -36,6 +36,8 @@ showSidebar.addEventListener("click", () => {
     showSidebar.hidden = true;
 });
 
+
+
 const fileList = document.querySelector(".files");
 
 newFolder.addEventListener("click", async () => {
@@ -158,6 +160,12 @@ fileList.addEventListener("drop", async (event) => {
 
     note.draggable = false;
 
+    const cursorElements = document.querySelectorAll("body, button, summary");
+
+    cursorElements.forEach((element) => {
+        element.style.cursor = "wait";
+    });
+
     try {
         const response = await fetch(`/notes/${note.dataset.id}`, {
             method: "PATCH",
@@ -181,5 +189,22 @@ fileList.addEventListener("drop", async (event) => {
         alert("Could not confirm the note's move.");
     } finally {
         note.draggable = true;
+        cursorElements.forEach((element) => {
+            element.style.cursor = "";
+        });
     }
+});
+
+fileList.addEventListener("click", (event) => {
+    const note = event.target.closest(".note");
+
+    if (!note || !note.dataset.id) return;
+
+    const selectedNote = fileList.querySelector(".note.selected");
+
+    if (selectedNote) {
+        selectedNote.classList.remove("selected");
+    }
+
+    note.classList.add("selected");
 });

@@ -47,6 +47,13 @@ h1 {
     font-size: 32px;
 }
 
+h2 {
+    margin: 0;
+    margin-right: auto;
+    font-size: 24px;
+    color: #808080;
+}
+
 button {
     color: inherit;
     font: inherit;
@@ -182,4 +189,12 @@ button {
 
 .files .note:hover {
     background: #373737;
+}
+
+.files .note.selected {
+    background: #373737;
+}
+
+.files details > .note {
+    padding-left: 32px;
 }
